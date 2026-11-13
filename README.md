@@ -1,23 +1,25 @@
-# HUSTEF 2026 · Agentic QCSD Tutorial
+# Agile Testing Days 2026 · Agentic QCSD Workshop
 
-Welcome 👋 This is the official repo for the full-day tutorial **The 70% Problem: Reclaiming Testing's Intellectual Core with Agentic Quality Engineering** at **[HUSTEF 2026](https://hustef.com/lalit-dragan_2026/)**, Budapest.
+Welcome 👋 This is the official repo for the full-day workshop **The 70% Problem: Reclaiming Testing's Intellectual Core with Agentic Quality Engineering** at **[Agile Testing Days 2026](https://agiletestingdays.com/2026/session/the-70-problem/)**, Potsdam.
 
-**Full-day tutorial · Tuesday 6 October 2026 · 09:00 to 17:00 · Facilitators: Lalitkumar Bhamare and Dragan Spiridonov**
+**Full-day workshop · Monday 16 November 2026 · 08:30 to 16:30 · Facilitators: Lalitkumar Bhamare and Dragan Spiridonov**
 
-**Agentic QCSD** is about putting autonomous AI quality agents to work *across the whole delivery lifecycle* — not just generating tests, but reasoning about requirements, product risk, code quality, security, and accessibility the way a quality engineer would. In this session you'll drive a fleet of these agents (**[Agentic QE](https://github.com/proffesor-for-testing/agentic-qe)**) through four SDLC phases, watch what they surface *on their own*, and then judge their output with the **PACTS** lens (Proactive, Autonomous, Collaborative, Targeted, Structured).
+> **Authorship and permitted use.** QCSD, Agentic QCSD and Designed Agency are the original work of Lalitkumar Bhamare, licensed under [CC BY 4.0](https://talesoftesting.com/qcsd/): reuse requires credit to him. The [Agentic QE](https://github.com/proffesor-for-testing/agentic-qe) framework is MIT open source by Dragan Spiridonov, with Lalitkumar Bhamare as key contributor. **The workshop slides are all rights reserved: recreating, redistributing or republishing them without consulting Lalitkumar Bhamare and Dragan Spiridonov is forbidden.** Details: [NOTICE.md](./NOTICE.md).
 
-The catch: great agents need something real to chew on. So this repo also ships a small, deliberately-flawed e-commerce app as the **subject under test** — see [The demo app](#the-demo-app) below.
+**Agentic QCSD** is about putting autonomous AI quality agents to work *across the whole delivery lifecycle*, not just generating tests, but reasoning about requirements, product risk, code quality, security, and accessibility the way a quality engineer would. In this session you'll drive a fleet of these agents (**[Agentic QE](https://github.com/proffesor-for-testing/agentic-qe)**) through four SDLC phases, watch what they surface *on their own*, and then judge their output with the **PACTS** lens (Proactive, Autonomous, Collaborative, Targeted, Structured).
+
+The catch: great agents need something real to chew on. So this repo also ships a small, deliberately-flawed e-commerce app as the **subject under test**: see [The demo app](#the-demo-app) below.
 
 ---
 
 ## What you'll do
 
-A short warm-up plus six SDLC exercises (requirements testability, product factors, exploratory coverage, defect risk profiling, test design, deployment readiness) and a self-learning close — all copy-paste, in **[LAB.md](./LAB.md)**. The exercises build on each other (Refinement's ideas feed exploration and Development; the defect risk profile picks the module; CI/CD verifies the result), and every exercise **persists what it learns** so the fleet's memory grows as you go:
+A short warm-up plus six SDLC exercises (requirements testability, product factors, exploratory coverage, defect risk profiling, test design, deployment readiness) and a self-learning close, all copy-paste, in **[LAB.md](./LAB.md)**, sized for the full day. The exercises build on each other (Refinement's ideas feed exploration and Development; the defect risk profile checks the module; CI/CD verifies the result), and every exercise **persists what it learns** so the fleet's memory grows as you go:
 
 | Step | Agent(s) / tool | The question it answers |
 |------|-----------------|--------------------------|
 | **0 · Warm-up** | `aqe code index src/` (your terminal) | Build a knowledge-graph map of the code and a clean memory baseline. Runs locally, no API key, a few seconds. |
-| **1 · Ideation** | ideation gate (quality-criteria + risk + requirements) | Before any code — can a QE even do their job with these requirements? GO / CONDITIONAL / NO-GO. |
+| **1 · Ideation** | ideation gate (quality-criteria + risk + requirements) | Before any code: can a QE even do their job with these requirements? GO / CONDITIONAL / NO-GO. |
 | **2 · Refinement** | `qe-product-factors-assessor` | What is this product really made of (SFDIPOT), and where's the risk? |
 | **2b · Exploratory coverage** | `/exploratory-testing-advanced` | Which exploratory charters does the product need, what does a first pass find, and what is left for a human tester? |
 | **2c · Defect risk profile** | `qe-defect-predictor` | Which modules are most likely to hold defects, and why? Does that agree with the module we test next? |
@@ -25,15 +27,15 @@ A short warm-up plus six SDLC exercises (requirements testability, product facto
 | **4 · CI/CD** | `qe-queen-coordinator` (verify) | Is this releasable? Coverage + security + a 90% gate → GO / CONDITIONAL / NO-GO. |
 | **5 · Self-Learning** | AQE memory | Put memory to work: have the fleet consolidate everything it learned into an instant onboarding / handoff brief. |
 
-The SDLC exercises have **two prompt versions** — one for **Claude Code users** (skills / orchestrator) and one for **non-Claude-Code users** (generic step list) — so they work on any tool; Step 0 is three terminal commands and Step 5 is one prompt, both identical on every tool. You then **Apply PACTS** to score each agent's output, and finish with a **Personal Adoption Roadmap**. Everything is kept lean and token-cheap so a whole room can run it on personal keys.
+The SDLC exercises have **two prompt versions**: one for **Claude Code users** (skills / orchestrator) and one for **non-Claude-Code users** (generic step list), so they work on any tool; Step 0 is three terminal commands and Step 5 is one prompt, both identical on every tool. You then **Apply PACTS** to score each agent's output, and finish with a **Personal Adoption Roadmap**. Everything is kept lean and token-cheap so a whole room can run it on personal keys.
 
 ---
 
 ## Before you arrive
 
-A tutorial day is not enough time to fix a laptop. Please get through Setup at home.
+A workshop day is not enough time to fix a laptop. Please get through Setup at home.
 
-- **Node.js 22.13 or newer, and npm 10 or newer.** Check with `node -v` and `npm -v`. Use a supported Node release that satisfies the latest AQE package's engine requirement; the devcontainer supplies Node 22.
+- **Node.js 22.13 or newer, and npm 10 or newer.** Check with `node -v` and `npm -v`. The current AQE package declares `node >= 22.13`, so install Node 22 LTS or newer. The devcontainer supplies Node 22.
 - **Rights to install a global npm package.** Setup runs `npm install -g agentic-qe`. If your machine blocks that, bring a laptop that does not.
 - **A coding agent you already use, signed in and working.** Claude Code, GitHub Copilot, Cursor, AWS Kiro, OpenAI Codex CLI, Windsurf, Cline, OpenCode, Kilo Code, Roo Code or Continue.dev. AQE drives whichever one you have, through one MCP server.
 - **Your own model access.** Steps 1 to 5 spend your tokens on your own key or subscription. Step 0 spends none. Budget about what an hour of ordinary agent use costs you.
@@ -53,20 +55,20 @@ account and optional Stripe test keys.
 **1. Get this repo.** Clone it (or download the ZIP from the green **Code** button and unzip), then move into the folder:
 
 ```bash
-git clone https://github.com/fndlalit/HUSTEF-70-Percent-Problem-Tutorial
-cd HUSTEF-70-Percent-Problem-Tutorial
+git clone https://github.com/fndlalit/AgileTD-70-Percent-Problem-Workshop
+cd AgileTD-70-Percent-Problem-Workshop
 ```
 
-> **Clone close to your home folder.** The code indexer skips any file more than ten directories deep, so `~/HUSTEF-70-Percent-Problem-Tutorial` works and `~/Documents/Conferences/2026/HUSTEF/tutorials/...` silently drops the API routes from the knowledge graph.
+> **Clone close to your home folder.** The code indexer skips any file more than ten directories deep, so `~/AgileTD-70-Percent-Problem-Workshop` works and `~/Documents/Conferences/2026/AgileTestingDays/workshops/...` silently drops the API routes from the knowledge graph.
 
 **2. Install AQE and set it up for your coding agent.** Run these once, from inside the folder:
 
 ```bash
 npm install -g agentic-qe@latest  # the latest published AQE CLI
-aqe init --auto                    # set up AQE for YOUR coding agent — see the table below
+aqe init --auto                    # set up AQE for YOUR coding agent: see the table below
 ```
 
-`aqe init --auto` configures **Claude Code** by default. Using a different coding agent? Add the matching flag — AQE works with **11 platforms** through a single MCP server:
+`aqe init --auto` configures **Claude Code** by default. Using a different coding agent? Add the matching flag: AQE works with **11 platforms** through a single MCP server:
 
 | Coding agent | `aqe init` command |
 |--------------|--------------------|
@@ -97,7 +99,7 @@ npm install
 ```bash
 aqe code index src/     # expect: 21 files indexed, 102 nodes, 117 edges, a few seconds
 aqe hg stats            # the same graph, counted by node type
-aqe memory usage        # your starting baseline: 21 entries, 102 vectors
+aqe memory usage        # your starting baseline: 21 entries, 81 vectors
 ```
 
 This is static analysis plus a local embedding model. It needs no API key and spends no tokens. Run it in the terminal rather than asking your agent to do it, so the agent does not pay to relay the output.
@@ -115,13 +117,13 @@ AQE treats this package as an explicit security opt-in: its dependency chain cur
 Confirm it took, and load the seed brain so Exercise 5 has substance even if an earlier exercise failed:
 
 ```bash
-aqe learning import -i seed/aqe-seed-patterns.json
-aqe learning stats     # Total jumps from 0 to 76: AQE's own patterns plus your six
+aqe learning import -i seed/aqe-seed-patterns.json --curate
+aqe learning stats     # Total reads 76: AQE's 70 built-in patterns plus your six
 ```
 
-The import line can read `Imported: 0 · Skipped: 6` even when it worked. Trust `aqe learning stats`: if Total reads 76, the seed brain is loaded.
+`--curate` vouches for the six seed patterns: since AQE 3.15.20, test generation only applies patterns it can trust. The import line should read `Imported: 6`; on a re-run it can read `Imported: 0 · Skipped: 6` even when it worked. Trust `aqe learning stats`: if Total reads 76, the seed brain is loaded.
 
-**6. Launch your coding agent in this folder** — Claude Code, Copilot, Cursor, Kiro, Codex, Windsurf… whichever you have. This folder is your workspace root; all paths in LAB.md are relative to it. On first launch Claude Code asks you to trust the folder and to approve the `agentic-qe` MCP server. Accept both, or the skills and memory tools will not load.
+**6. Launch your coding agent in this folder**: Claude Code, Copilot, Cursor, Kiro, Codex, Windsurf… whichever you have. This folder is your workspace root; all paths in LAB.md are relative to it. On first launch Claude Code asks you to trust the folder and to approve the `agentic-qe` MCP server. Accept both, or the skills and memory tools will not load.
 
 ➡️ **Next:** open **[LAB.md](./LAB.md)** and start with Exercise 1.
 
@@ -129,18 +131,18 @@ The import line can read `Imported: 0 · Skipped: 6` even when it worked. Trust 
 
 ## The demo app
 
-A six-product electronics storefront with a complete purchase flow — the *subject under test*, not the point of the workshop. It deliberately contains realistic quality issues (validation gaps, accessibility misses, fragile payment-retry logic, weak input handling) for the agents to find.
+A six-product electronics storefront with a complete purchase flow: the *subject under test*, not the point of the workshop. It deliberately contains realistic quality issues (validation gaps, accessibility misses, fragile payment-retry logic, weak input handling) for the agents to find.
 
-- **Catalog** (`src/app/page.tsx`, `src/lib/products.ts`) — product grid with add-to-cart.
-- **Cart** (`src/app/cart`, `src/context/CartContext.tsx`) — client-side state via React context + reducer.
-- **Checkout** (`src/app/checkout`, `src/components/CheckoutForm.tsx`) — address + payment form (Stripe Elements), validation, guest checkout.
-- **Confirmation** (`src/app/confirmation`) — post-purchase summary.
-- **API routes** (`src/app/api`) — `create-payment-intent` and `orders`.
-- **Libraries** (`src/lib`) — card/Luhn validation, form/email validation, guest sessions, rate limiting, payment-retry with backoff, order-event publishing.
+- **Catalog** (`src/app/page.tsx`, `src/lib/products.ts`): product grid with add-to-cart.
+- **Cart** (`src/app/cart`, `src/context/CartContext.tsx`): client-side state via React context + reducer.
+- **Checkout** (`src/app/checkout`, `src/components/CheckoutForm.tsx`): address + payment form (Stripe Elements), validation, guest checkout.
+- **Confirmation** (`src/app/confirmation`): post-purchase summary.
+- **API routes** (`src/app/api`): `create-payment-intent` and `orders`.
+- **Libraries** (`src/lib`): card/Luhn validation, form/email validation, guest sessions, rate limiting, payment-retry with backoff, order-event publishing.
 
 **Tech stack:** Next.js 14 (App Router) · React 18 · TypeScript · Stripe · Tailwind CSS · Vitest + Testing Library.
 
-Test coverage is **intentionally uneven** — some modules and UI states are left untested on purpose, so there's real work for the agents.
+Test coverage is **intentionally uneven**: some modules and UI states are left untested on purpose, so there's real work for the agents.
 
 **Run the existing tests (optional):**
 
@@ -153,4 +155,4 @@ npm run test:coverage   # with coverage
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT: see [LICENSE](./LICENSE).
