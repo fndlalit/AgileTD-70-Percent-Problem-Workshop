@@ -1,15 +1,13 @@
-# Workshop container — Codespaces or local Docker
+# Workshop container: Codespaces or local Docker
 
-For the **6 October 2026** tutorial, this is an alternative to the manual Setup
+For the **16 November 2026** Agile Testing Days workshop, this is an alternative to the manual Setup
 in README. It uses the same app and exercises, **latest published AQE**, and local
-embedder **4.2.0**. Node 22 satisfies AQE's engine requirement. The presentation
-(version 5), this container and the manual setup all use the latest release
-(3.14.8 at verification on 4 October 2026).
+embedder **4.2.0**. Node 22 satisfies AQE's engine requirement. This container and the manual setup both use the latest release
+(3.15.18 at verification on 6 November 2026).
 
 ## GitHub Codespaces
 
 1. Open the repository → **Code → Codespaces → Create codespace on main**.
-   Before this PR is merged, select its `codex/workshop-devcontainer` branch.
 2. Allow the container build and setup to finish. Select a 4-core machine with
    8 GB RAM if available. Your own GitHub Codespaces allowance/billing applies.
 3. In the terminal run:
@@ -40,11 +38,10 @@ exercises still use your chosen model provider and tokens.
 Start Docker Desktop (or your Linux Docker daemon), install DevPod, then:
 
 ```bash
-git clone https://github.com/fndlalit/HUSTEF-70-Percent-Problem-Tutorial
-cd HUSTEF-70-Percent-Problem-Tutorial
-# Before merge: git switch codex/workshop-devcontainer
+git clone https://github.com/fndlalit/AgileTD-70-Percent-Problem-Workshop
+cd AgileTD-70-Percent-Problem-Workshop
 devpod provider add docker   # once; skip if already configured
-devpod up . --provider docker --id hustef-70-percent
+devpod up . --provider docker --id atd-70-percent
 ```
 
 Run the same preparation, verification and sign-in steps in the new workspace.
@@ -120,13 +117,12 @@ setup with a trusted embedding endpoint rather than this default image.
 - **MCP memory on non-Claude agents:** TROUBLESHOOTING.md describes a limitation
   observed on AQE 3.14.1. Do not assume a newer version behaves identically;
   verify recall on your chosen agent, and use LAB.md's reports fallback if needed.
-  On AQE 3.14.8 our isolated MCP handshake exposed 91 tools, but both a glob
-  query of the graph namespace and a semantic payment-retry query returned zero
-  entries despite the verified SQLite seed. The MCP smoke check reports this
+  On AQE 3.15.18 our isolated MCP handshake exposed 91 tools, but the memory query
+  returned zero entries despite the verified SQLite seed. The MCP smoke check reports this
   limitation explicitly; `--require-recall` makes it fail. This is transport
   validation, not proof that Exercise 5 can recall your agent's learnings.
-  In a full Claude Code run on 3.14.8 (manual setup, 4 October 2026) Exercise 5 did recall
-  five patterns that Exercises 1 to 4 had stored in the `learning` namespace; the six seed
+  In a full Claude Code run on 3.15.18 (manual setup, 6 November 2026) Exercise 5 did recall
+  four patterns that Exercises 1 to 4 had stored in the `learning` namespace; the six seed
   patterns were not returned by the memory query.
 
 References: [port forwarding in Codespaces](https://docs.github.com/en/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace),
