@@ -1,5 +1,5 @@
 {
-  "name": "HUSTEF 2026 · The 70% Problem",
+  "name": "Agile Testing Days 2026 · The 70% Problem",
   "build": { "dockerfile": "Dockerfile", "context": "." },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/tutorial,type=bind",
   "workspaceFolder": "/workspaces/tutorial",

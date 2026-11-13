@@ -26,7 +26,7 @@ function request(method, params = {}) {
 }
 const deadline = setTimeout(() => { console.error('MCP handshake timed out'); server.kill('SIGKILL'); process.exitCode = 1; }, 60000);
 try {
-  await request('initialize', { protocolVersion: '2024-11-05', capabilities: {}, clientInfo: { name: 'hustef-readiness', version: '1.0.0' } });
+  await request('initialize', { protocolVersion: '2024-11-05', capabilities: {}, clientInfo: { name: 'atd-readiness', version: '1.0.0' } });
   server.stdin.write(`${JSON.stringify({ jsonrpc: '2.0', method: 'notifications/initialized' })}\n`);
   const tools = [];
   let cursor;
